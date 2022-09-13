@@ -35,6 +35,12 @@
         android:title="@string/advanced_battery_preference_title"
         settings:searchable="false" />
 
+    <com.cherish.settings.preferences.SystemSettingSwitchPreference
+        android:key="battery_24_hrs_stats"
+        android:title="@string/advanced_battery_preference_summary_google"
+        android:defaultValue="false"
+        settings:searchable="false" />
+
     <Preference
         android:fragment="com.android.settings.fuelgauge.batterysaver.BatterySaverSettings"
         android:key="battery_saver_summary"
@@ -57,11 +63,17 @@
         settings:keywords="@string/keywords_battery_share_settings"
         settings:searchable="true" />
 
-    <!-- Battery light -->
-    <SwitchPreference
-        android:key="battery_light_enabled"
-        android:title="@string/battery_light_title"
-        settings:controller="com.android.settings.notification.BatteryLightPreferenceController"/>
+    <Preference
+        android:fragment="com.android.settings.fuelgauge.smartcharging.SmartChargingSettings"
+        android:key="smart_charging_key"
+        android:title="@string/smart_charging_title"
+        android:summary="@string/smart_charging_summary" />
+
+    <Preference
+        android:fragment="com.android.settings.fuelgauge.BatteryChargeSoundSettings"
+        android:key="battery_charge_sound"
+        android:title="@string/notification_battery_charge_level_title"
+        android:summary="@string/notification_battery_charge_level_summary" />
 
     <SwitchPreference
         android:key="battery_percentage"
@@ -74,6 +86,33 @@
         android:title="@string/fast_charging_title"
         android:summary="@string/fast_charging_summary"
         settings:controller="com.android.settings.fuelgauge.FastChargingPreferenceController"/>
+
+    <Preference
+        android:key="high_power_apps"
+        android:title="@string/high_power_apps"
+        android:summary="@string/high_power_apps_summary">
+        <intent android:action="android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS" />
+    </Preference>
+
+    <com.android.settings.fuelgauge.batteryusage.PowerGaugePreference
+        android:key="designed_battery_capacity"
+        android:title="@string/designed_battery_capacity"
+        android:selectable="false" />
+
+    <com.android.settings.fuelgauge.batteryusage.PowerGaugePreference
+        android:key="current_battery_capacity"
+        android:title="@string/current_battery_capacity"
+        android:selectable="false" />
+
+    <com.android.settings.fuelgauge.batteryusage.PowerGaugePreference
+        android:key="battery_charge_cycles"
+        android:title="@string/battery_charge_cycles"
+        android:selectable="false" />
+
+    <com.android.settings.fuelgauge.batteryusage.PowerGaugePreference
+        android:key="battery_temp"
+        android:title="@string/battery_temp"
+        android:selectable="false" />
 
     <com.android.settingslib.widget.FooterPreference
         android:key="power_usage_footer"
