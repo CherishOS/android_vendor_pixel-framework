@@ -201,16 +201,6 @@
         android:title="@string/screenshot_shutter_sound_title" />
 
     <SwitchPreference
-        android:key="charging_sounds"
-        android:order="-40"
-        android:title="@string/charging_sounds_custom_title" />
-
-    <SwitchPreference
-        android:key="charging_vibro"
-        android:order="-39"
-        android:title="@string/charging_vibro_title" />
-
-    <SwitchPreference
         android:key="docking_sounds"
         android:order="-35"
         android:title="@string/docking_sounds_title" />
