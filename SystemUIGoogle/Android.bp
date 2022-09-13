@@ -24,6 +24,10 @@ android_library {
     ],
     manifest: "AndroidManifest.xml",
 
+    libs: [
+        "ims-common",
+    ],
+
     kotlincflags: ["-Xjvm-default=enable"],
 
     plugins: ["dagger2-compiler"],
@@ -51,6 +55,10 @@ android_app {
     system_ext_specific: true,
     certificate: "platform",
     privileged: true,
+
+    libs: [
+        "ims-common",
+    ],
 
     optimize: {
         proguard_flags_files: ["proguard.flags"],
