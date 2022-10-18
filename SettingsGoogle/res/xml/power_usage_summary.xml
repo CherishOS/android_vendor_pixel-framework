@@ -74,6 +74,21 @@
         android:title="@string/fast_charging_title"
         android:summary="@string/fast_charging_summary"
         settings:controller="com.android.settings.fuelgauge.FastChargingPreferenceController"/>
+		
+	<com.android.settings.fuelgauge.PowerGaugePreference
+        android:key="designed_battery_capacity"
+        android:title="@string/designed_battery_capacity"
+        android:selectable="false" />
+
+    <com.android.settings.fuelgauge.PowerGaugePreference
+        android:key="current_battery_capacity"
+        android:title="@string/current_battery_capacity"
+        android:selectable="false" />
+
+    <com.android.settings.fuelgauge.PowerGaugePreference
+        android:key="battery_charge_cycles"
+        android:title="@string/battery_charge_cycles"
+        android:selectable="false" />
 
     <com.android.settings.fuelgauge.PowerGaugePreference
         android:key="battery_temp"
