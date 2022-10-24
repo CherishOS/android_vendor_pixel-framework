@@ -60,6 +60,14 @@
             android:summary="@string/lockscreen_double_line_clock_summary"
             android:title="@string/lockscreen_double_line_clock_setting_toggle"
             settings:controller="com.android.settings.display.LockscreenClockPreferenceController" />
+        
+        <Preference
+         android:title="@string/lockscreen_tuner_title"
+         android:summary="@string/lockscreen_tuner_summary" >
+         <intent android:action="android.intent.action.MAIN"
+                 android:targetPackage="com.android.systemui"
+                 android:targetClass="com.android.systemui.tuner.LockscreenActivity" />
+    </Preference>
 
     </PreferenceCategory>
 
