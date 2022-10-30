@@ -57,6 +57,7 @@ import com.android.systemui.keyguard.KeyguardViewMediator;
 import com.android.systemui.keyguard.ScreenLifecycle;
 import com.android.systemui.keyguard.WakefulnessLifecycle;
 import com.android.systemui.model.SysUiState;
+import com.android.systemui.statusbar.policy.TaskHelper;
 import com.android.systemui.navigationbar.NavigationBarController;
 import com.android.systemui.plugins.FalsingManager;
 import com.android.systemui.plugins.PluginDependencyProvider;
@@ -144,7 +145,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
     private final WallpaperNotifier mWallpaperNotifier;
     private final Optional<ReverseChargingViewController> mReverseChargingViewControllerOptional;
     private final SysuiStatusBarStateController mStatusBarStateController;
-
+    
     private long mAnimStartTime;
     private int mReceivingBatteryLevel;
     private boolean mReverseChargingAnimShown;
@@ -248,6 +249,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             TunerService tunerService,
             IDreamManager dreamManager,
             SysUiState sysUiState,
+            TaskHelper taskHelper,
             WallpaperNotifier wallpaperNotifier,
             Optional<ReverseChargingViewController> reverseChargingViewControllerOptional,
             KeyguardIndicationControllerGoogle keyguardIndicationControllerGoogle) {
@@ -280,7 +282,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 featureFlags, keyguardUnlockAnimationController, mainHandler, delayableExecutor,
                 messageRouter, wallpaperManager, startingSurfaceOptional, activityLaunchAnimator,
                 notifPipelineFlags, jankMonitor, deviceStateManager, dreamOverlayStateController,
-                wiredChargingRippleController, tunerService, dreamManager, sysUiState);
+                wiredChargingRippleController, tunerService, dreamManager, sysUiState, taskHelper);
         mBatteryStateChangeCallback = new BatteryController.BatteryStateChangeCallback() {
             @Override
             public void onBatteryLevelChanged(int i, boolean z, boolean z2) {
