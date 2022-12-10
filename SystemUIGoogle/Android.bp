@@ -31,6 +31,10 @@ android_library {
         "columbus-lib",
     ],
     manifest: "AndroidManifest.xml",
+    
+        libs: [
+        "ims-common",
+    ],
 
     kotlincflags: ["-Xjvm-default=enable"],
 
@@ -60,6 +64,10 @@ android_app {
     certificate: "platform",
     privileged: true,
 
+    libs: [
+        "ims-common",
+    ],
+    
     optimize: {
         proguard_flags_files: ["proguard.flags"],
     },
