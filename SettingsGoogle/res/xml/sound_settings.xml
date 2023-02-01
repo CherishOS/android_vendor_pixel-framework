@@ -137,6 +137,22 @@
         android:title="@string/accessibility_vibration_settings_title"
         settings:controller="com.android.settings.accessibility.VibrationPreferenceController"
         settings:keywords="@string/keywords_vibration" />
+    
+    <ListPreference
+        android:key="vibration_pattern"
+        android:order="-85"
+        android:title="@string/vibration_pattern_title"
+        android:entries="@array/vibration_pattern_entries"
+        android:entryValues="@array/vibration_pattern_values" />
+  
+    <!-- Custom ringtone vibration pattern preference -->
+    <Preference
+        android:fragment="com.android.settings.sound.CustomVibrationPreferenceFragment"
+        android:key="custom_vibration_pattern"
+        android:order="-83"
+        android:summary="@string/custom_vibration_pattern_summary"
+        android:title="@string/custom_vibration_pattern_title"
+        android:visibility="gone"/>
 
     <com.android.settingslib.PrimarySwitchPreference
         android:fragment="com.android.settings.gestures.PreventRingingGestureSettings"
@@ -152,6 +168,23 @@
         android:ringtoneType="notification"
         android:summary="@string/summary_placeholder"
         android:title="@string/notification_ringtone_title" />
+    
+    <ListPreference
+        android:key="notification_vibration_pattern"
+        android:title="@string/notification_vibration_pattern_title"
+        android:entries="@array/notification_vibration_pattern_entries"
+        android:entryValues="@array/vibration_pattern_values"
+        android:defaultValue="0"
+        android:order="-67" />
+
+    <!-- Custom notification vibration pattern preference -->
+    <Preference
+        android:key="custom_notification_vibration_pattern"
+        android:title="@string/custom_vibration_pattern_title"
+        android:summary="@string/custom_vibration_pattern_summary"
+        android:fragment="com.android.settings.sound.CustomNotificationVibrationPreferenceFragment"
+        android:visibility="gone"
+        android:order="-63" />
 
     <com.android.settings.DefaultRingtonePreference
         android:dialogTitle="@string/alarm_ringtone_title"
