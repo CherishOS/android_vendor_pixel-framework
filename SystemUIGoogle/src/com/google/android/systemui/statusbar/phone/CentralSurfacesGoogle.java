@@ -243,6 +243,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             ActivityLaunchAnimator activityLaunchAnimator,
             InteractionJankMonitor jankMonitor,
             DeviceStateManager deviceStateManager,
+            TunerService tunerService,
             WiredChargingRippleController wiredChargingRippleController,
             IDreamManager dreamManager,
             Lazy<CameraLauncher> cameraLauncherLazy,
@@ -251,10 +252,9 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             SmartSpaceController smartSpaceController,
             Optional<ReverseChargingViewController> reverseChargingViewControllerOptional,
             KeyguardIndicationControllerGoogle keyguardIndicationControllerGoogle,
-            TunerService tunerService,
+            BurnInProtectionController burnInProtectionController,
             SysUiState sysUiState,
-            TaskHelper taskHelper,
-            BurnInProtectionController burnInProtectionController) {
+            TaskHelper taskHelper) {
         super(context, notificationsController, fragmentService, lightBarController,
                 autoHideController, statusBarWindowController, statusBarWindowStateController,
                 keyguardUpdateMonitor, statusBarSignalPolicy, pulseExpansionHandler,
@@ -282,8 +282,8 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 statusBarHideIconsForBouncerManager, lockscreenShadeTransitionController,
                 featureFlags, keyguardUnlockAnimationController, mainHandler, delayableExecutor,
                 messageRouter, wallpaperManager, startingSurfaceOptional, activityLaunchAnimator,
-                jankMonitor, deviceStateManager, wiredChargingRippleController,
-                dreamManager, cameraLauncherLazy, lightRevealScrimViewModelLazy, tunerService, sysUiState, taskHelper, burnInProtectionController);
+                jankMonitor, deviceStateManager, tunerService, wiredChargingRippleController,
+                dreamManager, cameraLauncherLazy, lightRevealScrimViewModelLazy, burnInProtectionController, sysUiState, taskHelper);
         mContext = context;
         mBatteryStateChangeCallback = new BatteryController.BatteryStateChangeCallback() {
             @Override
