@@ -119,6 +119,10 @@
 
     <PreferenceCategory
         android:title="@string/category_name_display_controls">
+        
+        <SwitchPreference
+            android:key="enable_blurs_on_windows"
+            android:title="@string/window_blurs"/>
 
         <com.android.settingslib.PrimarySwitchPreference
             android:fragment="com.android.settings.display.SmartAutoRotatePreferenceFragment"
