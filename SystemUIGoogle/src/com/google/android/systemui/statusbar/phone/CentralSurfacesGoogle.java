@@ -31,6 +31,7 @@ import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import android.hardware.fingerprint.FingerprintManager;
 import com.android.internal.jank.InteractionJankMonitor;
 import com.android.internal.logging.MetricsLogger;
 import com.android.keyguard.KeyguardUpdateMonitor;
@@ -56,17 +57,20 @@ import com.android.systemui.keyguard.KeyguardUnlockAnimationController;
 import com.android.systemui.keyguard.KeyguardViewMediator;
 import com.android.systemui.keyguard.ScreenLifecycle;
 import com.android.systemui.keyguard.WakefulnessLifecycle;
+import com.android.systemui.keyguard.domain.interactor.AlternateBouncerInteractor;
 import com.android.systemui.keyguard.ui.viewmodel.LightRevealScrimViewModel;
 import com.android.systemui.model.SysUiState;
 import com.android.systemui.navigationbar.NavigationBarController;
 import com.android.systemui.plugins.FalsingManager;
 import com.android.systemui.plugins.PluginDependencyProvider;
 import com.android.systemui.plugins.PluginManager;
+import com.android.systemui.settings.UserTracker;
 import com.android.systemui.recents.ScreenPinningRequest;
 import com.android.systemui.settings.brightness.BrightnessSliderController;
 import com.android.systemui.shade.CameraLauncher;
 import com.android.systemui.shade.ShadeController;
 import com.android.systemui.shade.ShadeExpansionStateManager;
+import com.android.systemui.shade.QuickSettingsController;
 import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.KeyguardIndicationController;
 import com.android.systemui.statusbar.LockscreenShadeTransitionController;
@@ -133,6 +137,7 @@ import java.util.concurrent.Executor;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.inject.Provider;
 
 import dagger.Lazy;
 
@@ -143,9 +148,9 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
     private final BatteryController.BatteryStateChangeCallback mBatteryStateChangeCallback;
     private final KeyguardIndicationControllerGoogle mKeyguardIndicationController;
     private final WallpaperNotifier mWallpaperNotifier;
-    private final Optional<ReverseChargingViewController> mReverseChargingViewControllerOptional;
     private final SysuiStatusBarStateController mStatusBarStateController;
     private final SmartSpaceController mSmartSpaceController;
+    private final Optional<ReverseChargingViewController> mReverseChargingViewControllerOptional;
     private final NotificationLockscreenUserManagerGoogle mNotificationLockscreenUserManagerGoogle;
 
     private long mAnimStartTime;
@@ -252,6 +257,9 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             SmartSpaceController smartSpaceController,
             Optional<ReverseChargingViewController> reverseChargingViewControllerOptional,
             KeyguardIndicationControllerGoogle keyguardIndicationControllerGoogle,
+            AlternateBouncerInteractor alternateBouncerInteractor,
+            UserTracker userTracker,
+            Provider<FingerprintManager> fingerprintManagerProvider,
             BurnInProtectionController burnInProtectionController,
             SysUiState sysUiState,
             TaskHelper taskHelper) {
@@ -283,7 +291,8 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 featureFlags, keyguardUnlockAnimationController, mainHandler, delayableExecutor,
                 messageRouter, wallpaperManager, startingSurfaceOptional, activityLaunchAnimator,
                 jankMonitor, deviceStateManager, tunerService, wiredChargingRippleController,
-                dreamManager, cameraLauncherLazy, lightRevealScrimViewModelLazy, burnInProtectionController, sysUiState, taskHelper);
+                dreamManager, cameraLauncherLazy, lightRevealScrimViewModelLazy, alternateBouncerInteractor, 
+                userTracker, fingerprintManagerProvider, burnInProtectionController, sysUiState, taskHelper);
         mContext = context;
         mBatteryStateChangeCallback = new BatteryController.BatteryStateChangeCallback() {
             @Override

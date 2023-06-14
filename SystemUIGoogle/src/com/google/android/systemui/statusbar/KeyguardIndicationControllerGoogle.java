@@ -17,6 +17,7 @@
 package com.google.android.systemui.statusbar;
 
 import android.app.admin.DevicePolicyManager;
+import android.app.AlarmManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -31,6 +32,7 @@ import android.view.accessibility.AccessibilityManager;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.app.IBatteryStats;
 import com.android.internal.widget.LockPatternUtils;
+import com.android.systemui.keyguard.domain.interactor.AlternateBouncerInteractor;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardUpdateMonitorCallback;
 import com.android.keyguard.logging.KeyguardLogger;
@@ -105,11 +107,13 @@ public class KeyguardIndicationControllerGoogle extends KeyguardIndicationContro
             KeyguardLogger keyguardLogger,
             TunerService tunerService,
             DeviceConfigProxy deviceConfigProxy,
-            FaceHelpMessageDeferral faceHelpMessageDeferral) {
+            FaceHelpMessageDeferral faceHelpMessageDeferral,
+            AlternateBouncerInteractor alternateBouncerInteractor,
+            AlarmManager alarmManager) {
         super(context, mainLooper, wakeLockBuilder, keyguardStateController, statusBarStateController, keyguardUpdateMonitor,
             dockManager, broadcastDispatcher, devicePolicyManager, iBatteryStats, userManager, executor, bgExecutor,
             falsingManager, authController, lockPatternUtils, screenLifecycle, keyguardBypassController,
-            accessibilityManager, keyguardLogger, faceHelpMessageDeferral);
+            accessibilityManager, keyguardLogger, faceHelpMessageDeferral, alternateBouncerInteractor, alarmManager);
         mBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context2, Intent intent) {
