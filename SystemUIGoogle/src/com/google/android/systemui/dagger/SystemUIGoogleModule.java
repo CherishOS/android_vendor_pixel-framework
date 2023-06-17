@@ -69,8 +69,6 @@ import com.android.systemui.statusbar.phone.HeadsUpManagerPhone;
 import com.android.systemui.statusbar.phone.KeyguardBypassController;
 import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
 import com.android.systemui.statusbar.policy.AccessibilityManagerWrapper;
-import com.android.systemui.statusbar.policy.BatteryController;
-import com.android.systemui.statusbar.policy.BatteryControllerImpl;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedControllerImpl;
@@ -83,6 +81,10 @@ import com.android.systemui.statusbar.policy.SensorPrivacyControllerImpl;
 import com.android.systemui.volume.dagger.VolumeModule;
 
 import com.google.android.systemui.NotificationLockscreenUserManagerGoogle;
+
+import com.android.systemui.rotationlock.RotationLockModule;
+import com.android.systemui.statusbar.policy.AospPolicyModule;
+
 import com.google.android.systemui.assist.AssistManagerGoogle;
 import com.google.android.systemui.assist.dagger.AssistModule;
 import com.google.android.systemui.columbus.dagger.ColumbusModule;
@@ -127,6 +129,8 @@ import dagger.Lazy;
         ElmyraModule.class,
         ColumbusModule.class,
         StatusBarEventsModule.class,
+        AospPolicyModule.class,
+        RotationLockModule.class,
         CherishModule.class
 })
 public abstract class SystemUIGoogleModule {
@@ -234,34 +238,6 @@ public abstract class SystemUIGoogleModule {
 
     @Binds
     abstract DockManager bindDockManager(DockObserver dockObserver);
-
-    @Provides
-    @SysUISingleton
-    static BatteryController provideBatteryController(
-            Context context,
-            EnhancedEstimates enhancedEstimates,
-            PowerManager powerManager,
-            BroadcastDispatcher broadcastDispatcher,
-            DemoModeController demoModeController,
-            DumpManager dumpManager,
-            @Main Handler mainHandler,
-            @Background Handler bgHandler,
-            UserContentResolverProvider userContentResolverProvider,
-            ReverseChargingController reverseChargingController) {
-        BatteryController bC = new BatteryControllerImplGoogle(
-                context,
-                enhancedEstimates,
-                powerManager,
-                broadcastDispatcher,
-                demoModeController,
-                dumpManager,
-                mainHandler,
-                bgHandler,
-                userContentResolverProvider,
-                reverseChargingController);
-        bC.init();
-        return bC;
-    }
 
     /** */
     @Binds
