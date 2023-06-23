@@ -248,7 +248,6 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             ActivityLaunchAnimator activityLaunchAnimator,
             InteractionJankMonitor jankMonitor,
             DeviceStateManager deviceStateManager,
-            TunerService tunerService,
             WiredChargingRippleController wiredChargingRippleController,
             IDreamManager dreamManager,
             Lazy<CameraLauncher> cameraLauncherLazy,
@@ -262,6 +261,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             Provider<FingerprintManager> fingerprintManagerProvider,
             BurnInProtectionController burnInProtectionController,
             SysUiState sysUiState,
+            TunerService tunerService,
             TaskHelper taskHelper) {
         super(context, notificationsController, fragmentService, lightBarController,
                 autoHideController, statusBarWindowController, statusBarWindowStateController,
@@ -290,9 +290,9 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 statusBarHideIconsForBouncerManager, lockscreenShadeTransitionController,
                 featureFlags, keyguardUnlockAnimationController, mainHandler, delayableExecutor,
                 messageRouter, wallpaperManager, startingSurfaceOptional, activityLaunchAnimator,
-                jankMonitor, deviceStateManager, tunerService, wiredChargingRippleController,
+                jankMonitor, deviceStateManager, wiredChargingRippleController,
                 dreamManager, cameraLauncherLazy, lightRevealScrimViewModelLazy, alternateBouncerInteractor, 
-                userTracker, fingerprintManagerProvider, burnInProtectionController, sysUiState, taskHelper);
+                userTracker, fingerprintManagerProvider, burnInProtectionController, sysUiState, tunerService, taskHelper);
         mContext = context;
         mBatteryStateChangeCallback = new BatteryController.BatteryStateChangeCallback() {
             @Override
