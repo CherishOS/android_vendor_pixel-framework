@@ -26,7 +26,7 @@ import android.os.PowerManager;
 
 import androidx.annotation.Nullable;
 
-import com.android.internal.logging.UiEventLogger;
+import com.android.systemui.qs.QsEventLogger;
 import com.android.keyguard.KeyguardViewController;
 import com.android.systemui.assist.AssistManager;
 import com.android.systemui.broadcast.BroadcastDispatcher;
@@ -39,7 +39,6 @@ import com.android.systemui.dock.DockManager;
 import com.android.systemui.dock.DockManagerImpl;
 import com.android.systemui.doze.DozeHost;
 import com.android.systemui.dump.DumpManager;
-import com.android.systemui.cherish.CherishModule;
 import com.android.systemui.media.dagger.MediaModule;
 import com.android.systemui.navigationbar.gestural.GestureModule;
 import com.android.systemui.plugins.BcSmartspaceDataPlugin;
@@ -47,6 +46,7 @@ import com.android.systemui.plugins.qs.QSFactory;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.power.EnhancedEstimates;
 import com.android.systemui.qs.dagger.QSModule;
+import com.android.systemui.qs.dagger.cherish.QSModuleCherish;
 import com.android.systemui.qs.tileimpl.QSFactoryImpl;
 import com.android.systemui.recents.Recents;
 import com.android.systemui.recents.RecentsImplementation;
@@ -132,7 +132,7 @@ import dagger.Lazy;
         StatusBarEventsModule.class,
         SystemUIGooglePolicyModule.class,
         RotationLockModule.class,
-        CherishModule.class
+        QSModuleCherish.class
 })
 public abstract class SystemUIGoogleModule {
 
@@ -188,7 +188,7 @@ public abstract class SystemUIGoogleModule {
             ConfigurationController configurationController,
             @Main Handler handler,
             AccessibilityManagerWrapper accessibilityManagerWrapper,
-            UiEventLogger uiEventLogger,
+            QsEventLogger uiEventLogger,
             ShadeExpansionStateManager shadeExpansionStateManager) {
         return new HeadsUpManagerPhone(
                 context,

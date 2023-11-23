@@ -20,6 +20,11 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/gesture_preference_title">
 
+    <com.android.settingslib.widget.IllustrationPreference
+        android:key="gestures_illustration"
+        settings:lottie_rawRes="@raw/gestures_illustration"
+        android:order="-1001" />
+
     <Preference
         android:key="gesture_assist_input_summary"
         android:title="@string/assist_gesture_title"
@@ -87,12 +92,12 @@
         settings:searchable="false"
         settings:controller="com.android.settings.gestures.PickupGesturePreferenceController" />
 
-    <com.cherish.settings.preferences.SecureSettingSwitchPreference
-            android:key="screen_off_udfps_enabled"
-            android:title="@string/screen_off_udfps_title"
-            android:summary="@string/screen_off_udfps_summary"
-            android:defaultValue="false"
-            settings:controller="com.android.settings.security.UdfpsGesturePreferenceController" />
+    <Preference
+        android:key="gesture_screen_off_udfps_input_summary"
+        android:title="@string/ambient_display_screen_off_udfps_title"
+        android:fragment="com.android.settings.gestures.ScreenOffUdfpsSettings"
+        settings:searchable="false"
+        settings:controller="com.android.settings.gestures.ScreenOffUdfpsPreferenceController" />
 
     <Preference
         android:key="gesture_power_menu_summary"
@@ -100,22 +105,33 @@
         android:fragment="com.android.settings.gestures.PowerMenuSettings"
         settings:controller="com.android.settings.gestures.PowerMenuPreferenceController" />
 
+    <Preference
+        android:key="doze_double_tap_summary"
+        android:title="@string/double_tap_title"
+        android:fragment="com.android.settings.gestures.DoubleTapAmbientSettings"
+        settings:userRestriction="no_ambient_display"
+        settings:controller="com.android.settings.gestures.DoubleTapAmbientPreferenceController" />
 
     <Preference
-        android:key="gesture_swipe_to_screenshot_summary"
+        android:key="swipe_to_screenshot_gesture_summary"
         android:title="@string/swipe_to_screenshot_gesture_title"
         android:fragment="com.android.settings.gestures.SwipeToScreenshotGestureSettings"
         settings:controller="com.android.settings.gestures.SwipeToScreenshotPreferenceController" />
-
-    <Preference
-        android:key="gesture_volume_button_music_control_summary"
-        android:title="@string/volume_button_music_control_title"
-        android:fragment="com.android.settings.gestures.VolumeButtonMusicControlGestureSettings"
-        settings:controller="com.android.settings.gestures.VolumeButtonMusicControlPreferenceController" />
 
     <com.android.settingslib.PrimarySwitchPreference
         android:key="gesture_prevent_ringing_summary"
         android:title="@string/gesture_prevent_ringing_screen_title"
         android:fragment="com.android.settings.gestures.PreventRingingGestureSettings"
         settings:controller="com.android.settings.gestures.PreventRingingParentPreferenceController" />
+
+    <Preference
+        android:key="touchscreen_gesture_settings"
+        android:persistent="false"
+        android:title="@string/touchscreen_gesture_settings_title"
+        android:summary="@string/touchscreen_gesture_settings_summary">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.touch.gestures"
+            android:targetClass="com.android.touch.gestures.TouchscreenGestureSettings" />
+    </Preference>
 </PreferenceScreen>

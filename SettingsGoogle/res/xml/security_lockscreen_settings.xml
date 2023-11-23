@@ -14,17 +14,6 @@
             android:title="@string/lock_screen_notifications_title"
             settings:keywords="@string/keywords_lock_screen_notif" />
 
-        <com.cherish.settings.preferences.SecureSettingListPreference
-            android:key="face_unlock_method"
-            android:title="@string/face_unlock_method_title"
-            android:summary="%s"
-            android:dialogTitle="@string/face_unlock_method_title"
-            android:entries="@array/face_unlock_method_entries"
-            android:entryValues="@array/face_unlock_method_values"
-            android:defaultValue="0"
-            settings:searchable="false"
-            settings:controller="com.android.settings.biometrics.face.FaceSettingsLockscreenUnlockMethodPreferenceController" />
-
         <SwitchPreference
             android:key="security_display_lockscreen_bypass"
             android:summary="@string/lockscreen_bypass_summary"
@@ -86,11 +75,11 @@
             settings:controller="com.android.settings.display.AmbientDisplayAlwaysOnPreferenceController"
             settings:userRestriction="no_ambient_display" />
 
-        <SwitchPreference
+        <com.cherish.settings.preferences.SecureSettingSwitchPreference
             android:key="doze_on_charge"
             android:title="@string/doze_on_charge_title"
             android:summary="@string/doze_on_charge_summary"
-            settings:controller="com.android.settings.display.DozeOnChargePreferenceController" />
+            android:defaultValue="false" />
 
         <SwitchPreference
             android:key="pulse_on_new_tracks"
@@ -120,26 +109,19 @@
             settings:searchable="false" />
 
         <!-- Screen OFF FOD -->
-        <com.cherish.settings.preferences.SecureSettingSwitchPreference
-            android:key="screen_off_udfps_enabled"
-            android:title="@string/screen_off_udfps_title"
-            android:summary="@string/screen_off_udfps_summary"
-            android:defaultValue="false"
-            settings:controller="com.android.settings.security.UdfpsGesturePreferenceController" />
+        <Preference
+            android:key="gesture_screen_off_udfps_input_summary"
+            android:title="@string/ambient_display_screen_off_udfps_title"
+            android:fragment="com.android.settings.gestures.ScreenOffUdfpsSettings"
+            settings:searchable="false"
+            settings:controller="com.android.settings.gestures.ScreenOffUdfpsPreferenceController" />
 
         <!-- Actually controls doze enablement -->
         <SwitchPreference
             android:key="ambient_display_notification"
-            android:title="@string/doze_enabled_title"
-            android:summary="@string/doze_enabled_summary"
-            settings:controller="com.android.settings.display.AmbientDisplayNotificationsPreferenceController" />
-
-        <!-- Controls wake for notifications -->
-        <com.cherish.settings.preferences.SecureSettingSwitchPreference
-            android:key="doze_for_notifications"
-            android:title="@string/doze_title"
             android:summary="@string/doze_summary"
-            android:defaultValue="true" />
+            android:title="@string/doze_title"
+            settings:controller="com.android.settings.display.AmbientDisplayNotificationsPreferenceController" />
         
         <Preference
             android:key="ambient_display_custom"
