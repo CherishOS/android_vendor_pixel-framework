@@ -58,6 +58,7 @@ import com.android.systemui.util.StartBinderLoggerModule
 import com.android.systemui.volume.VolumeUI
 import com.android.systemui.wmshell.WMShell
 
+import com.google.android.systemui.theme.ThemeOverlayControllerGoogle
 import com.google.android.systemui.GoogleServices
 import com.google.android.systemui.smartspace.KeyguardSmartspaceStartable
 
@@ -197,6 +198,12 @@ abstract class SystemUIGoogleCoreStartableModule {
     @ClassKey(SystemActions::class)
     abstract fun bindSystemActions(sysui: SystemActions): CoreStartable
 
+    /** Inject into ThemeOverlayController.  */
+    @Binds
+    @IntoMap
+    @ClassKey(ThemeOverlayController::class)
+    abstract fun bindThemeOverlayControllerGoogle(sysui: ThemeOverlayControllerGoogle): CoreStartable
+
     /** Inject into ToastUI.  */
     @Binds
     @IntoMap
@@ -309,7 +316,7 @@ abstract class SystemUIGoogleCoreStartableModule {
     @IntoMap
     @ClassKey(KeyguardSmartspaceStartable::class)
     abstract fun bindKeyguardSmartspaceStartable(sysui: KeyguardSmartspaceStartable): CoreStartable
-
+    
     /** Inject into SmartPixelsReceiver.  */
     @Binds
     @IntoMap
