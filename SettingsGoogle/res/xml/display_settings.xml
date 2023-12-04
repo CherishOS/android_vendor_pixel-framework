@@ -223,10 +223,6 @@
             android:title="@string/tap_to_wake"
             android:summary="@string/tap_to_wake_summary" />
 
-        <SwitchPreference
-            android:key="enable_blurs_on_windows"
-            android:title="@string/window_blurs" />
-
         <com.cherish.settings.preferences.SystemSettingSwitchPreference
             android:key="proximity_on_wake"
             android:title="@string/proximity_wake_title"
