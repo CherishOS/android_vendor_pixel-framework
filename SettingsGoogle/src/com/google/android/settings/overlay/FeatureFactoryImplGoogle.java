@@ -42,9 +42,10 @@ public final class FeatureFactoryImplGoogle extends FeatureFactoryImpl {
     }
 
     @Override
-    public BatterySettingsFeatureProvider getBatterySettingsFeatureProvider(Context context) {
+    public BatterySettingsFeatureProvider getBatterySettingsFeatureProvider() {
+        final Context context = getAppContext();
         if (mBatterySettingsFeatureProvider == null) {
-            mBatterySettingsFeatureProvider = isChartGraphEnabled(context) ? new BatterySettingsFeatureProviderImpl(context) : new BatterySettingsFeatureProviderGoogleImpl(
+            mBatterySettingsFeatureProvider = isChartGraphEnabled(context) ? new BatterySettingsFeatureProviderImpl() : new BatterySettingsFeatureProviderGoogleImpl(
                     context);
         }
         return mBatterySettingsFeatureProvider;

@@ -95,7 +95,7 @@ public final class BatteryUsageContentProvider extends ContentProvider {
     }
 
     public static /* synthetic */ void lambda$getBatteryUsageData$0(MatrixCursor matrixCursor, BatteryDiffEntry batteryDiffEntry) {
-        if (batteryDiffEntry.mBatteryHistEntry == null || batteryDiffEntry.getPercentage() == 0.0d) {
+        if (batteryDiffEntry.getPercentage() == 0.0d) {
             return;
         }
         addUsageDataRow(matrixCursor, batteryDiffEntry);
@@ -107,6 +107,6 @@ public final class BatteryUsageContentProvider extends ContentProvider {
             Log.w("BatteryUsageContentProvider", "no package name found for\n" + batteryDiffEntry);
             return;
         }
-        matrixCursor.addRow(new Object[]{new Long(batteryDiffEntry.mBatteryHistEntry.mUserId), packageName, new Double(batteryDiffEntry.getPercentage()), new Long(batteryDiffEntry.mForegroundUsageTimeInMs), new Long(batteryDiffEntry.mBackgroundUsageTimeInMs)});
+        matrixCursor.addRow(new Object[]{new Long(batteryDiffEntry.mUserId), packageName, new Double(batteryDiffEntry.getPercentage()), new Long(batteryDiffEntry.mForegroundUsageTimeInMs), new Long(batteryDiffEntry.mBackgroundUsageTimeInMs)});
     }
 }
