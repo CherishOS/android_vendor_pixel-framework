@@ -19,17 +19,9 @@ package com.google.android.systemui.dagger;
 import com.android.systemui.dagger.GlobalModule;
 import com.android.systemui.dagger.GlobalRootComponent;
 import com.android.systemui.dagger.WMComponent;
+import com.android.systemui.util.InitializationChecker;
 
-import javax.inject.Singleton;
-
-import dagger.Component;
-
-@Singleton
-@Component(modules = {
-        GlobalModule.class
-})
 public interface SystemUIGoogleGlobalRootComponent extends GlobalRootComponent {
-    @Component.Builder
     interface Builder extends GlobalRootComponent.Builder {
         SystemUIGoogleGlobalRootComponent build();
     }
@@ -39,4 +31,7 @@ public interface SystemUIGoogleGlobalRootComponent extends GlobalRootComponent {
 
     @Override
     SystemUIGoogleComponent.Builder getSysUIComponent();
+
+    @Override
+    InitializationChecker getInitializationChecker();
 }
