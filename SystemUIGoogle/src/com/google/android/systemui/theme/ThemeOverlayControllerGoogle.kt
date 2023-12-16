@@ -62,8 +62,8 @@ class ThemeOverlayControllerGoogle @Inject constructor(
     uiModeManager: UiModeManager,
     @param:Main private val mainResources: Resources,
     private val systemPropertiesHelper: SystemPropertiesHelper,
-    configurationController: ConfigurationController,
     systemSettings: SystemSettings,
+    configurationController: ConfigurationController,
 ) : ThemeOverlayController(
     context,
     broadcastDispatcher,
@@ -81,8 +81,8 @@ class ThemeOverlayControllerGoogle @Inject constructor(
     resources,
     wakefulnessLifecycle,
     uiModeManager,
-    configurationController,
-    systemSettings
+    systemSettings,
+    configurationController
 ) {
     init {
         configurationController.addCallback(object :
