@@ -46,19 +46,21 @@
             android:fragment="com.android.settings.security.LockscreenDashboardFragment"
             settings:controller="com.android.settings.security.screenlock.LockScreenPreferenceController"
             settings:keywords="@string/keywords_ambient_display_screen" />
-
+        <com.android.settingslib.RestrictedPreference
+            android:fragment="com.android.settings.display.FoldLockBehaviorSettings"
+            android:key="fold_lock_behavior"
+            android:title="@string/fold_lock_behavior_title"
+            settings:controller="com.android.settings.display.FoldLockBehaviorPreferenceController"
+            settings:keywords="@string/keywords_fold_lock_behavior" />
         <com.android.settingslib.RestrictedPreference
             android:key="screen_timeout"
             android:title="@string/screen_timeout"
             android:summary="@string/summary_placeholder"
             android:fragment="com.android.settings.display.ScreenTimeoutSettings"
             settings:controller="com.android.settings.display.ScreenTimeoutPreferenceController" />
-
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="@string/category_name_appearance">
-
+    <PreferenceCategory android:title="@string/category_name_appearance">
         <com.android.settings.display.darkmode.DarkModePreference
             android:key="dark_ui_mode"
             android:title="@string/dark_ui_mode"
@@ -67,14 +69,12 @@
             settings:controller="com.android.settings.display.DarkUIPreferenceController"
             settings:keywords="@string/keywords_dark_ui_mode"
             settings:widgetLayout="@null" />
-
         <Preference
             android:key="screensaver"
             android:title="@string/screensaver_settings_title"
             android:fragment="com.android.settings.dream.DreamSettings"
             settings:controller="com.android.settings.display.ScreenSaverPreferenceController"
             settings:keywords="@string/keywords_screensaver" />
-
         <Preference
             android:key="text_reading_options"
             android:title="@string/accessibility_text_reading_options_title"
@@ -96,7 +96,6 @@
             android:title="@string/display_white_balance_title"
             android:summary="@string/display_white_balance_summary"
             settings:controller="com.android.settings.display.DisplayWhiteBalancePreferenceController" />
-
         <com.android.settingslib.PrimarySwitchPreference
             android:key="night_display"
             android:title="@string/night_display_title"
@@ -117,7 +116,6 @@
             android:fragment="com.android.settings.display.ColorModePreferenceFragment"
             settings:controller="com.android.settings.display.ColorModePreferenceController"
             settings:keywords="@string/keywords_color_mode" />
-
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -133,14 +131,12 @@
             android:fragment="com.android.settings.display.SmartAutoRotatePreferenceFragment"
             settings:controller="com.android.settings.display.SmartAutoRotatePreferenceController"
             settings:keywords="@string/keywords_auto_rotate" />
-
         <Preference
             android:key="device_state_auto_rotate"
             android:title="@string/accelerometer_title"
             android:fragment="com.android.settings.display.SmartAutoRotatePreferenceFragment"
             settings:controller="com.android.settings.display.DeviceStateAutoRotateOverviewController"
             settings:keywords="@string/keywords_auto_rotate" />
-
         <Preference
             android:key="screen_resolution"
             android:title="@string/screen_resolution_title"
@@ -217,7 +213,6 @@
         <SwitchPreference
             android:key="lift_to_wake"
             android:title="@string/lift_to_wake_title" />
-
         <SwitchPreference
             android:key="tap_to_wake"
             android:title="@string/tap_to_wake"

@@ -26,5 +26,4 @@
         android:gravity="center"
         android:layout_gravity="center"
         android:textSize="16.0dip" />
-
 </merge>
