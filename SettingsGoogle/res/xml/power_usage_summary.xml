@@ -66,6 +66,14 @@
                 settings:searchable="true"
                 settings:controller="com.google.android.settings.fuelgauge.reversecharging.ReverseChargingPreferenceController" />
 
+        <Preference
+                android:key="fast_charging"
+                android:order="1"
+                android:title="@string/fast_charging_title"
+                android:summary="@string/fast_charging_summary"
+                android:fragment="com.android.settings.fuelgauge.fastcharge.FastChargingSettings"
+                settings:controller="com.android.settings.fuelgauge.FastChargingPreferenceController" />
+
         <!-- Battery light -->
         <Preference
                 android:key="battery_lights"

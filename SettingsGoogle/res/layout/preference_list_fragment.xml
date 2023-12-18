@@ -4,14 +4,12 @@
     android:id="@id/container_material"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@*android:color/transparent"
     android:orientation="vertical">
 
     <FrameLayout
         android:id="@id/pinned_header"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="?android:windowBackground"
         android:elevation="1.0dip"
         android:visibility="gone" />
 

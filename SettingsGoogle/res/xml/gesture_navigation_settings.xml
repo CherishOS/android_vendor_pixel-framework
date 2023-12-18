@@ -6,8 +6,8 @@
     settings:keywords="@string/keywords_gesture_navigation_settings">
     <com.cherish.settings.preferences.SystemSettingSwitchPreference
         android:key="navigation_bar_hint"
-        android:title="@string/show_navbar_hint_title"
-        android:summary="@string/show_navbar_hint_summary"
+        android:title="@string/hide_navbar_gesture_bar_title"
+        android:summary="@string/hide_navbar_gesture_bar_summary"
         android:defaultValue="true" />
     <com.android.settings.widget.LabeledSeekBarPreference
         android:key="gesture_navbar_length_preference"
