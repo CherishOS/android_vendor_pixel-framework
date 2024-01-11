@@ -73,6 +73,11 @@
             android:title="@string/mms_message_title"
             settings:controller="com.android.settings.network.telephony.MmsMessagePreferenceController" />
         <SwitchPreference
+            android:key="force_lteca_key"
+            android:title="@string/force_lte_ca"
+            android:summary="@string/force_lte_ca_summary"
+            settings:controller="com.android.settings.network.telephony.ForceLteCaPreferenceController" />
+        <SwitchPreference
             android:key="enhanced_4g_lte"
             android:persistent="false"
             android:summary="@string/enhanced_4g_lte_mode_summary"
