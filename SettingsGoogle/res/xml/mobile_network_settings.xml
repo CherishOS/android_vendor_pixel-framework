@@ -78,6 +78,12 @@
             android:summary="@string/force_lte_ca_summary"
             settings:controller="com.android.settings.network.telephony.ForceLteCaPreferenceController" />
         <SwitchPreference
+            android:key="smart_5g"
+            android:title="@string/smart_5g_title"
+            android:persistent="false"
+            android:summary="@string/smart_5g_summary"
+            settings:controller="com.android.settings.network.telephony.Smart5gPreferenceController"/>
+        <SwitchPreference
             android:key="enhanced_4g_lte"
             android:persistent="false"
             android:summary="@string/enhanced_4g_lte_mode_summary"
