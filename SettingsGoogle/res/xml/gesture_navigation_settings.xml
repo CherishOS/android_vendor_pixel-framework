@@ -4,6 +4,50 @@
     android:key="gesture_navigation_settings_page"
     android:title="@string/gesture_settings_activity_title"
     settings:keywords="@string/keywords_gesture_navigation_settings">
+    <com.cherish.settings.preferences.SystemSettingSwitchPreference
+        android:key="navigation_bar_hint"
+        android:title="@string/show_navbar_hint_title"
+        android:summary="@string/show_navbar_hint_summary"
+        android:defaultValue="true" />
+    <com.android.settings.widget.LabeledSeekBarPreference
+        android:key="gesture_navbar_length_preference"
+        android:title="@string/gesture_navbar_length_title"
+        android:max="2"
+        android:selectable="true"
+        settings:textStart="@string/short_label"
+        settings:textEnd="@string/long_label"
+        android:dependency="navigation_bar_hint" />
+    <com.android.settings.widget.LabeledSeekBarPreference
+        android:key="gesture_navbar_radius_preference"
+        android:title="@string/gesture_navbar_radius_title"
+        android:max="5"
+        android:selectable="true"
+        settings:textStart="@string/thin_label"
+        settings:textEnd="@string/thick_label" />
+    <com.android.settings.widget.LabeledSeekBarPreference
+        android:key="gesture_back_height"
+        android:title="@string/back_height_title"
+        android:summary="@string/back_height_summary"
+        android:max="3"
+        android:selectable="true"
+        settings:textStart="@string/back_height_low_label"
+        settings:textEnd="@string/back_height_high_label" />
+    <com.cherish.settings.preferences.SecureSettingSwitchPreference
+        android:key="back_gesture_arrow"
+        android:title="@string/back_gesture_arrow_title"
+        android:summary="@string/back_gesture_arrow_summary"
+        android:defaultValue="true" />
+    <com.cherish.settings.preferences.SecureSettingSwitchPreference
+        android:key="back_gesture_haptic"
+        android:title="@string/back_gesture_haptic_title"
+        android:summary="@string/back_gesture_haptic_summary"
+        android:defaultValue="true" />
+    <com.cherish.settings.preferences.SystemSettingListPreference
+        android:key="navigation_bar_ime_space"
+        android:title="@string/navigation_bar_ime_space_title"
+        android:entries="@array/navigation_bar_ime_space_entries"
+        android:entryValues="@array/navigation_bar_ime_space_values"
+        android:defaultValue="0" />
     <PreferenceCategory
         android:key="assistant_gesture_category"
         android:persistent="false"
