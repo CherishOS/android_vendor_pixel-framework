@@ -92,12 +92,12 @@
         settings:searchable="false"
         settings:controller="com.android.settings.gestures.PickupGesturePreferenceController" />
 
-    <Preference
-        android:key="gesture_screen_off_udfps_input_summary"
-        android:title="@string/ambient_display_screen_off_udfps_title"
-        android:fragment="com.android.settings.gestures.ScreenOffUdfpsSettings"
-        settings:searchable="false"
-        settings:controller="com.android.settings.gestures.ScreenOffUdfpsPreferenceController" />
+    <com.cherish.settings.preferences.SecureSettingSwitchPreference
+            android:key="screen_off_udfps_enabled"
+            android:title="@string/ambient_display_screen_off_udfps_title"
+            android:summary="@string/ambient_display_screen_off_udfps_summary"
+            android:defaultValue="false"
+            settings:controller="com.android.settings.security.UdfpsGesturePreferenceController" />
 
     <Preference
         android:key="gesture_power_menu_summary"
